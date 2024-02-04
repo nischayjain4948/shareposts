@@ -9,6 +9,17 @@ const userSchema = new Schema({
 
 });
 
+
+
+// Method (always call an Instance of an Class)
+userSchema.methods.verifyPassword = async function (password) {
+    return _hash.verify(password, this.password);
+}
+
+
+
+
+
 // Pre hook for hashing the password before saving
 userSchema.pre('save', async function (next) {
     if (this.isModified('password')) {

@@ -29,8 +29,10 @@ input RegisterInput{
     email:String!
 }
 
+
 type Mutation{
     register(registerInput:RegisterInput!):User!
+    login(username:String!,password:String!):User!
 }
 
 
